@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { Box, Button, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Switch, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box style={{ height: '100%' }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Button>
+            <Typography variant="h5">
+              GRAP
+            </Typography>
+          </Button>
+        </Toolbar>
+      </AppBar>
+      {/* Begin Router */}
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Box>
   );
 }
 
