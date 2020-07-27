@@ -36,10 +36,10 @@ function Home(props) {
         <Box>
           <TextField required className={textField} label="Please enter your email" variant="filled" />
           <ButtonGroup className={buttonGroup}>
-            <Button className={item}>
+            <Button className={item} color="primary" variant="contained" disableElevation>
               Donate
             </Button>
-            <Button className={item}>
+            <Button className={item} variant="contained" disableElevation>
               Receive
             </Button>
           </ButtonGroup>
