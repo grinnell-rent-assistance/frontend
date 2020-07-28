@@ -26,15 +26,14 @@ function Home(props) {
   return (
     <Container>
       <Box className={textContainer}>
-        <Typography variant={'h6'}>
+        <Typography variant={'h5'}>
           Welcome to the Grinnell Rent Assistance Portal! We are unaffiliated with Grinnell College.
         </Typography>
         <p>
-          Enter your Grinnell College email address to receive a custom temporary link to either create your
-          donator entry or request donations.
+          Enter your Grinnell College email address to receive a custom temporary link to contribute or receive.
         </p>
         <Box>
-          <TextField required className={textField} label="Please enter your email" variant="filled" />
+          <TextField required className={textField} label="Please enter your grinnell.edu email" variant="filled" />
           <ButtonGroup className={buttonGroup}>
             <Button className={item} color="primary" variant="contained" disableElevation>
               Donate
