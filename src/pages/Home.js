@@ -38,6 +38,22 @@ function Home(props) {
     } else {
       setError(true);
       setMessage('Please enter a valid email');
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+    }
+  }
+
+  function verification() {
+    if (isGrinnellEmail(email)) {
+      props.onChange(email);
+      setRedirect(<Redirect to={"/verification"}/>);
+    } else {
+      setError(true);
+      setMessage('invalid email');
+>>>>>>> Stashed changes
     }
   }
 
