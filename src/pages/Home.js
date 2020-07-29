@@ -37,7 +37,7 @@ function Home(props) {
       setRedirect(<Redirect to={"/request"}/>);
     } else {
       setError(true);
-      setMessage('invalid email');
+      setMessage('Please enter a valid email');
     }
   }
 
