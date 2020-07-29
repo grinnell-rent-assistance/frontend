@@ -5,6 +5,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 import Home from './pages/Home';
 import CreateRequest from './pages/CreateRequest';
+import LandingPage from './pages/LandingPage';
 
 const useStyles = makeStyles((theme) => createStyles({
   container: {
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/request">
             <CreateRequest email={email} />
+          </Route>
+          <Route path="/verification">
+            <LandingPage email={email} />
           </Route>
         </Switch>
       </Box>
