@@ -38,7 +38,19 @@ function Home(props) {
     } else {
       setError(true);
       setMessage('Please enter a valid email');
+
     }
+  }
+
+  function verification() {
+    if (isGrinnellEmail(email)) {
+      props.onChange(email);
+      setRedirect(<Redirect to={"/verification"}/>);
+    } else {
+      setError(true);
+      setMessage('Please enter a valid email');
+    }
+  
   }
 
   return (
@@ -63,7 +75,7 @@ function Home(props) {
             helperText={message}
           />
           <ButtonGroup className={buttonGroup}>
-            <Button className={item} color="primary" variant="contained" disableElevation>
+            <Button className={item} color="primary" variant="contained" onClick={verification} disableElevation>
               Donate
             </Button>
             <Button className={item} variant="contained" onClick={receive} disableElevation>
