@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box, Button, AppBar, Toolbar, Typography, createStyles, makeStyles, MuiThemeProvider} from '@material-ui/core';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, BrowserRouter } from 'react-router-dom';
 
 import theme from './theme';
 import Home from './pages/Home';
@@ -28,34 +28,36 @@ function App() {
   const [email, setEmail] = React.useState('');
 
   return (
-    <MuiThemeProvider theme={theme}>
-      <Box style={{ height: '100%' }}>
-        <AppBar position="static">
-          <Toolbar>
-            <Button component={Link} to="/" >
-              <Typography variant="h5">
-                GRAP
-            </Typography>
-            </Button>
-            <Button className={darkModeButton} variant="contained">Switch to Dark Mode</Button>
-          </Toolbar>
-        </AppBar>
-        {/* Begin Router */}
-        <Box className={container}>
-          <Switch>
-            <Route exact path="/">
-              <Home onChange={setEmail} />
-            </Route>
-            <Route path="/request">
-              <CreateRequest email={email} />
-            </Route>
-            <Route path="/verification">
-              <LandingPage email={email} />
-            </Route>
-          </Switch>
+    <BrowserRouter>
+      <MuiThemeProvider theme={theme}>
+        <Box style={{ height: '100%' }}>
+          <AppBar position="static">
+            <Toolbar>
+              <Button component={Link} to="/" >
+                <Typography variant="h5">
+                  GRAP
+              </Typography>
+              </Button>
+              <Button className={darkModeButton} variant="contained">Switch to Dark Mode</Button>
+            </Toolbar>
+          </AppBar>
+          {/* Begin Router */}
+          <Box className={container}>
+            <Switch>
+              <Route exact path="/">
+                <Home onChange={setEmail} />
+              </Route>
+              <Route path="/request">
+                <CreateRequest email={email} />
+              </Route>
+              <Route path="/verification">
+                <LandingPage email={email} />
+              </Route>
+            </Switch>
+          </Box>
         </Box>
-      </Box>
-    </MuiThemeProvider>
+      </MuiThemeProvider>
+    </BrowserRouter>
   );
 }
 
