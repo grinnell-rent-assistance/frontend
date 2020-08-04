@@ -6,9 +6,10 @@ import isGrinnellEmail from '../utils/isGrinnellEmail';
 
 const useStyles = makeStyles((theme) => createStyles({
   textContainer: {
-    maxWidth: 500,
+    maxWidth: 700,
     margin: 'auto',
     textAlign: 'center',
+    background: "text.primary",
   },
   item: {
     flex: 1,
@@ -57,8 +58,11 @@ function Home(props) {
     <Container>
       {redirect}
       <Box className={textContainer}>
+        <Typography variant={'h4'}>
+          Welcome to the Grinnell Rent Assistance Portal!
+        </Typography>
         <Typography variant={'h5'}>
-          Welcome to the Grinnell Rent Assistance Portal! We are unaffiliated with Grinnell College.
+          We are unaffiliated with Grinnell College.
         </Typography>
         <p>
           Enter your Grinnell College email address to receive a custom temporary link to contribute or receive.
@@ -78,7 +82,7 @@ function Home(props) {
             <Button className={item} color="primary" variant="contained" onClick={verification} disableElevation>
               Donate
             </Button>
-            <Button className={item} variant="contained" onClick={receive} disableElevation>
+            <Button className={item} variant="contained" onClick={verification} disableElevation>
               Receive
             </Button>
           </ButtonGroup>
