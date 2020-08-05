@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Button, AppBar, Toolbar, Typography, createStyles, makeStyles, MuiThemeProvider, CssBaseline } from '@material-ui/core';
+import { Box, Button, AppBar, Toolbar, Typography, createStyles, makeStyles, MuiThemeProvider, CssBaseline, Switch as Toggler, FormControl, FormGroup, FormControlLabel } from '@material-ui/core';
 
 import { Switch, Route, Link } from 'react-router-dom';
 
@@ -11,20 +11,24 @@ import LandingPage from './pages/LandingPage';
 
 const useStyles = makeStyles((theme) => createStyles({
   root: {
-    flexgrow: 1,
+    flex: 1,
   },
   container: {
     marginTop: theme.spacing(3),
   },
   darkModeButton: {
     position: 'absolute',
-    right: '2%',
+    right: '3%',
+  },
+  formGroup: {
+    position: 'static',
+    marginRight: '2%',
   },
 })
 );
 
 function App() {
-  const { darkModeButton, container, Toggle } = useStyles();
+  const { darkModeButton, container, formGroup, root} = useStyles();
   const [email, setEmail] = React.useState('');
   const [theme, setTheme] = React.useState('light');
 
@@ -38,12 +42,21 @@ function App() {
         <Box style={{ height: '100%' }}>
           <AppBar position="static">
             <Toolbar>
-              <Button component={Link} to="/" >
+              <Button display='flex' flexGrow={1} component={Link} to="/" >
                 <Typography variant="h5">
                   GRAP
-            </Typography>
+                </Typography>
               </Button>
-              <Button className={darkModeButton} onClick={themeToggler} variant="contained">Switch Theme</Button>
+              <FormControl className={darkModeButton} component="fieldset">
+                <FormGroup aria-label="position" row>
+                  <FormControlLabel
+                    value="start"
+                    control={<Toggler onChange={themeToggler}/>}
+                    label="Switch Theme"
+                    labelPlacement="start" 
+                    />
+                </FormGroup>
+              </FormControl>
             </Toolbar>
           </AppBar>
           {/* Begin Router */}

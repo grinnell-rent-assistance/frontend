@@ -8,7 +8,7 @@ export function LightTheme() {
                 main: '#f44336',
             },
             secondary: {
-                main: '#ff7961',
+                main: '#cfcfcf',
             },
         },
     });
@@ -25,10 +25,10 @@ export function DarkTheme() {
                 main: '#cc3535',
             },
             secondary: {
-                main: '#7f0000',
+                main: '#3d3c3c',
             },
             background: {
-                default: '#212121',
+                default: '#1f1e1e',
             },
         },
     });
