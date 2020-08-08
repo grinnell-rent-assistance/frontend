@@ -2,6 +2,9 @@ import React from 'react';
 import { Container, Box, Button, ButtonGroup, makeStyles, createStyles, Typography, TextField } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
 
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+
 import isGrinnellEmail from '../utils/isGrinnellEmail';
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -20,12 +23,17 @@ const useStyles = makeStyles((theme) => createStyles({
   textField: {
     marginBottom: theme.spacing(1),
     width: '100%',
-  }
+  },
+  body: {
+    marginTop: theme.spacing(10),
+    padding: '20x',
+    margin: 100,
+  },
 })
 );
 
 function Home(props) {
-  const { textContainer, item, buttonGroup, textField } = useStyles();
+  const { textContainer, item, buttonGroup, textField, body } = useStyles();
 
   const [email, setEmail] = React.useState('');
   const [redirect, setRedirect] = React.useState(null);
@@ -35,7 +43,7 @@ function Home(props) {
   function receive() {
     if (isGrinnellEmail(email)) {
       props.onChange(email);
-      setRedirect(<Redirect to={"/request"}/>);
+      setRedirect(<Redirect to={"/request"} />);
     } else {
       setError(true);
       setMessage('Please enter a valid email');
@@ -46,12 +54,12 @@ function Home(props) {
   function verification() {
     if (isGrinnellEmail(email)) {
       props.onChange(email);
-      setRedirect(<Redirect to={"/verification"}/>);
+      setRedirect(<Redirect to={"/verification"} />);
     } else {
       setError(true);
       setMessage('Please enter a valid email');
     }
-  
+
   }
 
   return (
@@ -82,12 +90,27 @@ function Home(props) {
             <Button className={item} color="primary" variant="contained" onClick={verification} disableElevation>
               Donate
             </Button>
-            <Button className={item} variant="contained" onClick={verification} disableElevation>
+            <Button className={item} variant="contained" onClick={receive} disableElevation>
               Receive
             </Button>
           </ButtonGroup>
         </Box>
       </Box>
+
+      <Box className={body}>
+      <Typography align ='center' variant={'h5'}>
+          Title
+        </Typography>
+        <Typography variant={'body1'} display={'block'} marginTop='10'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+        laboris nisi ut aliquip ex ea commodo consequat. 
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </Typography>
+      </Box>
+
     </Container>
   )
 }

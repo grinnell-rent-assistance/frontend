@@ -10,8 +10,8 @@ import CreateRequest from './pages/CreateRequest';
 import LandingPage from './pages/LandingPage';
 
 const useStyles = makeStyles((theme) => createStyles({
-  root: {
-    flex: 1,
+  bar: {
+    background: 'linear-gradient(90deg, #ff6969 10%, #c72a2a 90%)',
   },
   container: {
     marginTop: theme.spacing(3),
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => createStyles({
 );
 
 function App() {
-  const { darkModeButton, container, formGroup, root} = useStyles();
+  const { darkModeButton, container, formGroup, bar} = useStyles();
   const [email, setEmail] = React.useState('');
   const [theme, setTheme] = React.useState('light');
 
@@ -65,12 +65,12 @@ function App() {
               <Route exact path="/">
                 <Home onChange={setEmail} />
               </Route>
-              {/* <Route path="/request">
-              <CreateRequest email={email} />
-            </Route> */}
               <Route path="/verification">
                 <LandingPage email={email} />
               </Route>
+              <Route path="/request">
+              <CreateRequest email={email} />
+            </Route>
             </Switch>
           </Box>
         </Box>
