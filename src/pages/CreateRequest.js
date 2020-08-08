@@ -21,17 +21,17 @@ const useStyles = makeStyles((theme) => createStyles({
 
 function CreateRequest(props) {
   const { root, form, button } = useStyles();
-  //const [redirect, setRedirect] = React.useState(null);
+  const [redirect, setRedirect] = React.useState(null);
   const [email, setEmail] = React.useState('');
 
-  // function verification() {
-  //   setRedirect(<Redirect to={"/verification"} />);
-  // }
+  function verification() {
+    setRedirect(<Redirect to={"/verification"} />);
+  }
 
   return (
     <Container className={root}>
       {isGrinnellEmail(props.email)? null: <Redirect to="/" />}
-      {/* {redirect} */}
+      {redirect}
       <FormControl className={form}>
         <Typography variant="h5">
           Create a Request
@@ -46,8 +46,7 @@ function CreateRequest(props) {
         <TextField label="Venmo" />
         <TextField label="Desired amount" /> <br />
         <TextareaAutosize rowsMin={3} placeholder="Extra Details" />
-        <Button className={button} variant="contained">
-        {/* onClick={verification}  */}
+        <Button className={button} onClick={verification} variant="contained">
           Submit
         </Button>
       </FormControl>
