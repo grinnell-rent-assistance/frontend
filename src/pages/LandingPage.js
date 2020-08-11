@@ -19,10 +19,10 @@ function LandingPage(props) {
     return (
         <Container className={root}>
             {isGrinnellEmail(props.email) ? null : <Redirect to="/" />}
-            <Typography variant={'h5'}>
+            <Typography variant={'h4'}>
                 Verification
           </Typography>
-            <p>
+            <p style={{fontSize:16}}>
                 We just sent a link to
                 <strong>
                     {' ' + props.email}
