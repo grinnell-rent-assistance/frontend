@@ -1,7 +1,7 @@
 import React from 'react';
 
-
-import { Box, Button, AppBar, Toolbar, Typography, createStyles, makeStyles, MuiThemeProvider, ScopedCssBaseline, Switch as Toggler, FormControl, FormGroup, FormControlLabel } from '@material-ui/core';
+import { Box, Button, AppBar, Toolbar, Typography, createStyles, makeStyles, MuiThemeProvider, Switch as Toggler, FormControl, FormGroup, FormControlLabel } from '@material-ui/core';
+import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 
 import { Switch, Route, Link, BrowserRouter } from 'react-router-dom';
 
@@ -9,6 +9,8 @@ import { LightTheme, DarkTheme } from './theme';
 import Home from './pages/Home';
 import CreateRequest from './pages/CreateRequest';
 import LandingPage from './pages/LandingPage';
+import About from './pages/About';
+import SimpleMenu from './components/Menu';
 
 const useStyles = makeStyles((theme) => createStyles({
   bar: {
@@ -44,6 +46,7 @@ function App() {
         <Box style={{ height: '100%' }}>
           <AppBar position="static">
             <Toolbar>
+              <SimpleMenu/>
               <Button display='flex' flexGrow={1} component={Link} to="/" >
                 <Typography variant="h5">
                   GRAP
@@ -73,6 +76,9 @@ function App() {
               <Route path="/request">
               <CreateRequest email={email} />
             </Route>
+            <Route path="/about">
+                <About/>
+              </Route>
             </Switch>
           </Box>
         </Box>
