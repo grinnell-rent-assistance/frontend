@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Button, AppBar, Toolbar, Typography, createStyles, makeStyles, MuiThemeProvider, Switch as Toggler, FormControl, FormGroup, FormControlLabel } from '@material-ui/core';
+import { Box, Button, AppBar, Toolbar, Typography, createStyles, makeStyles, MuiThemeProvider, Switch as Toggler, FormControl, FormGroup, FormControlLabel, CssBaseline } from '@material-ui/core';
 import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 
 import { Switch, Route, Link, BrowserRouter } from 'react-router-dom';
@@ -41,8 +41,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <MuiThemeProvider theme={theme === 'light' ? LightTheme() : DarkTheme()}>
-      <ScopedCssBaseline>
+     <MuiThemeProvider theme={theme === 'light' ? LightTheme() : DarkTheme()}>
+      <CssBaseline>
         <Box style={{ height: '100%' }}>
           <AppBar position="static">
             <Toolbar>
@@ -82,8 +82,8 @@ function App() {
             </Switch>
           </Box>
         </Box>
-      </ScopedCssBaseline>
-    </MuiThemeProvider>
+      </CssBaseline>
+      </MuiThemeProvider>
   </BrowserRouter>
   );
 }
